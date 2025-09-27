@@ -1,0 +1,155 @@
+@keyframes gradient-border-move {
+  0% { border-image-source: linear-gradient(90deg, #3A3A8C 0%, #A084E8 60%, #F7CA18 100%); }
+  50% { border-image-source: linear-gradient(270deg, #F7CA18 0%, #A084E8 60%, #3A3A8C 100%); }
+  100% { border-image-source: linear-gradient(90deg, #3A3A8C 0%, #A084E8 60%, #F7CA18 100%); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+.animate-spin-slow {
+  animation: spin 2.5s linear infinite;
+}
+.animate-spin-reverse {
+  animation: spin-reverse 1.8s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+.navbar-link {
+  position: relative;
+  display: inline-block;
+}
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #A084E8 0%, #F7CA18 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+.navbar-link:hover::after {
+  transform: scaleX(1);
+}
+
+.floating-bg {
+  animation: floatBg 8s ease-in-out infinite alternate;
+}
+@keyframes floatBg {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(120deg, #18122B 0%, #23235B 100%);
+  color: #F8F8FF;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #F8F8FF;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+}
+
+.navbar-link::after {
+  background: linear-gradient(90deg, #3A3A8C 0%, #A084E8 60%, #F7CA18 100%);
+}
+a {
+  color: #A084E8;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #F7CA18;
+}
+
+/* Prevent global link hover color for specific buttons (e.g., Resume) */
+.no-hover-color {
+  color: inherit !important;
+}
+.no-hover-color:hover {
+  color: inherit !important;
+}
+
+/* Custom cursor visuals */
+.cursor-dot, .cursor-ring { position: fixed; pointer-events: none; z-index: 99999; mix-blend-mode: difference; }
+.cursor-dot { width: 8px; height: 8px; border-radius: 9999px; background: #F7CA18; transform: translate3d(-50%, -50%, 0); transition: transform 0.06s linear, opacity 0.2s; opacity: 0.95; }
+.cursor-ring { width: 36px; height: 36px; border-radius: 9999px; border: 2px solid rgba(160,132,232,0.35); transform: translate3d(-50%, -50%, 0); transition: transform 0.12s ease, opacity 0.2s; opacity: 0.9; }
+
+body.cursor-hover .cursor-ring { transform: scale(1.45) translate3d(-50%, -50%, 0); border-color: rgba(247,202,24,0.95); }
+body.cursor-hover .cursor-dot { transform: scale(0.8) translate3d(-50%, -50%, 0); background: #A084E8; }
+
+/* Hide default cursor to show custom one (only on non-touch devices) */
+@media (pointer: fine) {
+  body { cursor: none; }
+}
+
+/* Section transitions */
+.section-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project card subtle highlight */
+.project-tilt {
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cinematic loader styles */
+.animate-pulse-slow { animation: pulseSlow 1.6s ease-in-out infinite; }
+@keyframes pulseSlow { 0%{ transform: scale(1); opacity: 1 } 50%{ transform: scale(1.35); opacity: 0.6 } 100%{ transform: scale(1); opacity: 1 } }
+
+/* Intersection observer triggered visibility */
+.section-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.section-fade.in-view { opacity: 1; transform: translateY(0); }
+
+.premium-gradient {
+  background: linear-gradient(90deg, #3A3A8C 0%, #A084E8 60%, #F7CA18 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradient-move {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 8s ease-in-out infinite;
+}
+
+@keyframes text-gradient {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(40deg); }
+}
+.animate-text-gradient {
+  animation: text-gradient 3s ease-in-out infinite;
+}
