@@ -58,13 +58,13 @@ export default function Projects() {
               className="grid md:grid-cols-2 gap-8 items-center rounded-2xl p-6 backdrop-blur-sm border border-[#A084E8]/30 bg-[#22223B]/80 shadow-lg"
             >
               <div className={`${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                <div className="rounded-xl overflow-hidden relative group" data-parallax-speed="0.12">
+                <div className="rounded-xl overflow-hidden relative group border-4 border-[#A084E8]/30">
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-64 object-cover group-hover:scale-105 transition duration-700 border-4 border-[#A084E8]/30"
+                    className="block w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700 transform-gpu"
                   />
-                  <div className="absolute inset-0 bg-[#A084E8]/10 group-hover:opacity-0 transition duration-700"></div>
+                  <div className="absolute inset-0 bg-[#A084E8]/10 group-hover:opacity-0 transition-opacity duration-700"></div>
                 </div>
               </div>
               

@@ -47,10 +47,14 @@ export default function Hero() {
           </span>
         </motion.h1>
         <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            const url = `${window.location.origin}/resume.pdf`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+          }}
           className="mt-4 px-8 py-4 rounded-full font-semibold bg-gradient-to-r from-[#3A3A8C] via-[#A084E8] to-[#F7CA18] text-[#18122B] shadow-lg transition hover:scale-105 no-hover-color inline-flex items-center gap-2"
+          role="button"
         >
           <span>Resume</span>
           <svg className="w-4 h-4 text-[#3A3A8C]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

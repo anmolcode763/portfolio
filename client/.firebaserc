@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "device-streaming-ca7c7117"
-  }
+    "default": "anmol-rajput",
+    "dist": "anmol-rajput"
+  },
+  "targets": {},
+  "etags": {}
 }
